@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong> Landing Page URL </strong>
+  <%= link_to(site_landing_url(@site.short_name)) %>
+</p>
+
+<p>
   <strong> Prospects </strong>
   <ul>
   <% @site.prospects.each do |prospect| %>
