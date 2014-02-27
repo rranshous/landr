@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /sites
   # GET /sites.json
