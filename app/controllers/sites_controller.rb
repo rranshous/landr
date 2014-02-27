@@ -6,8 +6,19 @@ class SitesController < ApplicationController
     short_name = params[:short_name]
     logger.debug "USER PASSED: #{short_name}"
     @site = Site.where(short_name: short_name).first
+    @prospect = Prospect.new
     logger.debug "FOUND SITE: #{@site}"
     render layout: 'landing'
+  end
+
+  def signup
+    prospect = Prospect.new(prospect_params)
+    short_name = params[:short_name]
+    site = Site.where(short_name: short_name).first
+    prospect.site = site
+    prospect.save
+    flash[:notice] = "Thanks, We'll email you when ready"
+    redirect_to action: :landing
   end
 
   # GET /sites
@@ -79,5 +90,9 @@ class SitesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
       params.require(:site).permit(:site_url, :background_url, :message, :short_name)
+    end
+
+    def prospect_params
+      params.require(:prospect).permit(:email)
     end
 end

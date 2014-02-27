@@ -3,6 +3,11 @@ Site URL: <%= @site.site_url %>
 <br/>
 Site Short Name: <%= @site.short_name %>
 
+<%= form_for(@prospect, url: { action: 'signup' }) do |f| %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>
+
 <style>
   body { 
   	background-image: url('<%= @site.background_url %>');
