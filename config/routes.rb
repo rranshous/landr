@@ -1,5 +1,7 @@
 Landr::Application.routes.draw do
 
+  root "sites#index"
+
   get "l/:short_name" => "sites#landing"
   post "l/:short_name" => "sites#signup"
 
