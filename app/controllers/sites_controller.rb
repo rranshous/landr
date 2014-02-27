@@ -2,6 +2,13 @@ class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
+  def landing
+    short_name = params[:short_name]
+    logger.debug "USER PASSED: #{short_name}"
+    @site = Site.where(short_name: short_name).first
+    logger.debug "FOUND SITE: #{@site}"
+  end
+
   # GET /sites
   # GET /sites.json
   def index
