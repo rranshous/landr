@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem "twitter-bootstrap-rails"
+gem 'better_errors'
+gem 'binding_of_caller'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'

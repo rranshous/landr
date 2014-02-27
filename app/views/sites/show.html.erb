@@ -20,5 +20,14 @@
   <%= @site.short_name %>
 </p>
 
+<p>
+  <strong> Prospects </strong>
+  <ul>
+  <% @site.prospects.each do |prospect| %>
+    <li> <%= prospect.email %> </li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>

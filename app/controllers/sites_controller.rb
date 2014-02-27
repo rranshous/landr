@@ -24,7 +24,8 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    #@sites = Site.all
+    @sites = current_user.sites
   end
 
   # GET /sites/1
@@ -45,6 +46,7 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = Site.new(site_params)
+    @site.user = current_user
 
     respond_to do |format|
       if @site.save
@@ -85,6 +87,9 @@ class SitesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_site
       @site = Site.find(params[:id])
+      if @site.user != current_user
+        raise "SOMETHING IS FUNKY"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
