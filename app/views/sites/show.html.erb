@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site url:</strong>
+  <%= @site.site_url %>
+</p>
+
+<p>
+  <strong>Background url:</strong>
+  <%= @site.background_url %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @site.message %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @site.short_name %>
+</p>
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
